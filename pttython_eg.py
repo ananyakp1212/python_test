@@ -1,3 +1,10 @@
+import re
+from collections import Counter
+import csv
+
+def extract_count(file_path, comments_column, search_string):
+    pattern = rf'{search_string} : \[code\]<I>(.*?)<\/I>\[/code\]'
+    groupCount= Counter()
     # Open the input file in csv format and read data
     with open(file_path, newline='', encoding='utf-8') as csvfile:
         reader = csv.DictReader(csvfile)
